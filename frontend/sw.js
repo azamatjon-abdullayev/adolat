@@ -1,7 +1,7 @@
 async function askAI(message, history = []) {
 
     const response = await fetch(
-        "http://localhost:3000/api/chat",
+        "https://adolat-4siq.onrender.com/api/chat",
         {
             method: "POST",
 
