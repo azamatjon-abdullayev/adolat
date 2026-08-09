@@ -1,20 +1,20 @@
 async function askAI(message, history = []) {
 
-    const response = await fetch(
-        "https://adolat-4siq.onrender.com/api/chat",
-        {
-            method: "POST",
+   const response = await fetch(
+    "https://adolat-4siq.onrender.com/api/chat",
+    {
+        method: "POST",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+        headers: {
+            "Content-Type": "application/json"
+        },
 
-            body: JSON.stringify({
-                message: message,
-                history: history
-            })
-        }
-    );
+        body: JSON.stringify({
+            message: message,
+            history: history
+        })
+    }
+);
 
     const data = await response.json();
 
