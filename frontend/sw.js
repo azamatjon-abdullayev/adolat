@@ -35,7 +35,7 @@ async function askAI(message, history = []) {
         console.log("📤 Render'ga so'rov yuborilmoqda...");
 
         const response = await fetch(
-            "https://adolat-4siq.onrender.com/api/chat",
+            "https://adolat-4siq.onrender.com",
             {
                 method: "POST",
                 headers: {
