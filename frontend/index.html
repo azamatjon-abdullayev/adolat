@@ -1,0 +1,1615 @@
+```html
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Adolat 2.0</title>
+
+<meta
+name="description"
+content="Adolat 2.0 — O‘zbekiston uchun huquqiy AI yordamchi">
+
+<meta
+name="theme-color"
+content="#0b1f3a">
+
+<link
+rel="manifest"
+href="./manifest.json">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+:root{
+
+--primary:#0b1f3a;
+--primary2:#123968;
+--gold:#d9a441;
+
+--bg:#f4f7fb;
+--card:#ffffff;
+--text:#172235;
+--muted:#687386;
+
+--border:#e1e6ee;
+
+}
+
+body{
+
+font-family:
+Inter,
+Arial,
+sans-serif;
+
+background:var(--bg);
+
+color:var(--text);
+
+}
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+background:white;
+
+border-bottom:
+1px solid var(--border);
+
+}
+
+.nav{
+
+max-width:1150px;
+
+height:70px;
+
+margin:auto;
+
+padding:0 20px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+font-size:22px;
+
+font-weight:800;
+
+color:var(--primary);
+
+}
+
+.logo-icon{
+
+width:42px;
+
+height:42px;
+
+border-radius:12px;
+
+display:grid;
+
+place-items:center;
+
+background:var(--primary);
+
+color:var(--gold);
+
+}
+
+nav{
+
+display:flex;
+
+gap:25px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:var(--text);
+
+font-weight:600;
+
+}
+
+.hero{
+
+background:
+
+radial-gradient(
+circle at 80% 20%,
+rgba(217,164,65,.2),
+transparent 30%
+),
+
+linear-gradient(
+135deg,
+#071a32,
+#123968
+);
+
+color:white;
+
+padding:90px 20px;
+
+}
+
+.hero-content{
+
+max-width:850px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:
+clamp(40px,7vw,65px);
+
+line-height:1.05;
+
+}
+
+.hero span{
+
+color:var(--gold);
+
+}
+
+.hero p{
+
+font-size:18px;
+
+color:#d5dfec;
+
+margin:20px 0 30px;
+
+}
+
+.search{
+
+display:flex;
+
+background:white;
+
+padding:7px;
+
+border-radius:15px;
+
+}
+
+.search input{
+
+flex:1;
+
+border:0;
+
+outline:0;
+
+padding:15px;
+
+font-size:16px;
+
+}
+
+button{
+
+cursor:pointer;
+
+}
+
+.btn{
+
+border:0;
+
+background:var(--gold);
+
+padding:13px 20px;
+
+border-radius:10px;
+
+font-weight:bold;
+
+}
+
+section{
+
+padding:70px 20px;
+
+}
+
+.container{
+
+max-width:1150px;
+
+margin:auto;
+
+}
+
+.title{
+
+text-align:center;
+
+margin-bottom:35px;
+
+}
+
+.title h2{
+
+font-size:32px;
+
+color:var(--primary);
+
+}
+
+.title p{
+
+color:var(--muted);
+
+margin-top:7px;
+
+}
+
+
+/* CARDS */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:18px;
+
+}
+
+.card{
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:18px;
+
+padding:25px;
+
+transition:.2s;
+
+cursor:pointer;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+0 15px 35px
+rgba(0,0,0,.08);
+
+}
+
+.card-icon{
+
+font-size:35px;
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+color:var(--muted);
+
+margin-top:7px;
+
+}
+
+
+/* AI */
+
+.ai-box{
+
+max-width:850px;
+
+margin:auto;
+
+background:white;
+
+border-radius:20px;
+
+border:1px solid var(--border);
+
+overflow:hidden;
+
+box-shadow:
+0 10px 30px
+rgba(0,0,0,.05);
+
+}
+
+.chat{
+
+height:430px;
+
+overflow-y:auto;
+
+padding:20px;
+
+}
+
+.message{
+
+max-width:82%;
+
+padding:13px 16px;
+
+border-radius:15px;
+
+margin-bottom:13px;
+
+white-space:pre-wrap;
+
+}
+
+.bot{
+
+background:#edf2f7;
+
+}
+
+.user{
+
+margin-left:auto;
+
+background:var(--primary);
+
+color:white;
+
+}
+
+.chat-input{
+
+display:flex;
+
+gap:8px;
+
+padding:12px;
+
+border-top:
+1px solid var(--border);
+
+}
+
+.chat-input input{
+
+flex:1;
+
+padding:13px;
+
+border:
+1px solid var(--border);
+
+border-radius:10px;
+
+outline:none;
+
+}
+
+.loading{
+
+opacity:.6;
+
+}
+
+
+/* LAWS */
+
+.laws{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:16px;
+
+}
+
+.law{
+
+background:white;
+
+border:
+1px solid var(--border);
+
+padding:22px;
+
+border-radius:16px;
+
+}
+
+.law-icon{
+
+font-size:30px;
+
+}
+
+
+/* APPLICATION */
+
+.generator{
+
+max-width:800px;
+
+margin:auto;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+border:
+1px solid var(--border);
+
+}
+
+.group{
+
+margin-bottom:17px;
+
+}
+
+.group label{
+
+display:block;
+
+font-weight:bold;
+
+margin-bottom:6px;
+
+}
+
+.group input,
+.group textarea,
+.group select{
+
+width:100%;
+
+padding:13px;
+
+border:
+1px solid var(--border);
+
+border-radius:10px;
+
+}
+
+.group textarea{
+
+min-height:120px;
+
+}
+
+.result{
+
+margin-top:20px;
+
+padding:20px;
+
+background:#f1f5f9;
+
+border-radius:12px;
+
+white-space:pre-wrap;
+
+display:none;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+background:var(--primary);
+
+color:white;
+
+padding:50px 20px;
+
+text-align:center;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+nav{
+
+display:none;
+
+}
+
+.cards{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+.laws{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+padding:65px 15px;
+
+}
+
+.search{
+
+flex-direction:column;
+
+gap:5px;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.laws{
+
+grid-template-columns:
+1fr 1fr;
+
+}
+
+.chat{
+
+height:380px;
+
+}
+
+.message{
+
+max-width:90%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+
+<div class="logo-icon">
+
+⚖️
+
+</div>
+
+ADOLAT
+
+</div>
+
+
+<nav>
+
+<a href="#home">
+Bosh sahifa
+</a>
+
+<a href="#laws">
+Qonunlar
+</a>
+
+<a href="#ai">
+AI
+</a>
+
+<a href="#application">
+Ariza
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section
+class="hero"
+id="home">
+
+<div class="hero-content">
+
+<h1>
+
+Huquqingizni biling.
+
+<br>
+
+<span>
+Adolatni tanlang.
+</span>
+
+</h1>
+
+<p>
+
+O‘zbekiston qonunchiligi bo‘yicha
+AI yordamchi bilan savollaringizga
+javob toping.
+
+</p>
+
+
+<div class="search">
+
+<input
+id="heroInput"
+placeholder="Masalan: Ish beruvchi oyligimni bermayapti...">
+
+<button
+class="btn"
+onclick="askFromHero()">
+
+🔎 So‘rash
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section>
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+Sizga qanday yordam beramiz?
+</h2>
+
+<p>
+Adolat 2.0 xizmatlari
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div
+class="card"
+onclick="scrollToAI()">
+
+<div class="card-icon">
+🤖
+</div>
+
+<h3>
+AI Huquqshunos
+</h3>
+
+<p>
+Huquqiy savolingizga AI orqali javob oling.
+</p>
+
+</div>
+
+
+<div
+class="card"
+onclick="location.hash='laws'">
+
+<div class="card-icon">
+📚
+</div>
+
+<h3>
+Qonunlar
+</h3>
+
+<p>
+Huquqiy mavzularni ko‘ring.
+</p>
+
+</div>
+
+
+<div
+class="card"
+onclick="location.hash='application'">
+
+<div class="card-icon">
+📝
+</div>
+
+<h3>
+Ariza yaratish
+</h3>
+
+<p>
+AI yordamida murojaat tayyorlang.
+</p>
+
+</div>
+
+
+<div
+class="card"
+onclick="alert('Test bo‘limi keyingi versiyada')">
+
+<div class="card-icon">
+🧠
+</div>
+
+<h3>
+Huquqiy test
+</h3>
+
+<p>
+Huquqiy bilimlaringizni sinang.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LAWS -->
+
+<section id="laws">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+📚 Huquqiy yo‘nalishlar
+</h2>
+
+<p>
+Kerakli yo‘nalishni tanlang
+</p>
+
+</div>
+
+
+<div class="laws">
+
+
+<div class="law">
+
+<div class="law-icon">
+👷
+</div>
+
+<h3>
+Mehnat huquqi
+</h3>
+
+<p>
+Ishchi va ish beruvchi munosabatlari.
+</p>
+
+</div>
+
+
+<div class="law">
+
+<div class="law-icon">
+🛒
+</div>
+
+<h3>
+Iste’molchi huquqi
+</h3>
+
+<p>
+Tovar va xizmatlardan foydalanish.
+</p>
+
+</div>
+
+
+<div class="law">
+
+<div class="law-icon">
+👨‍👩‍👧
+</div>
+
+<h3>
+Oila huquqi
+</h3>
+
+<p>
+Nikoh, aliment va oila masalalari.
+</p>
+
+</div>
+
+
+<div class="law">
+
+<div class="law-icon">
+🚗
+</div>
+
+<h3>
+Yo‘l harakati
+</h3>
+
+<p>
+Haydovchi va yo‘l harakati huquqlari.
+</p>
+
+</div>
+
+
+<div class="law">
+
+<div class="law-icon">
+🏠
+</div>
+
+<h3>
+Uy-joy huquqi
+</h3>
+
+<p>
+Uy-joy bilan bog‘liq masalalar.
+</p>
+
+</div>
+
+
+<div class="law">
+
+<div class="law-icon">
+🎓
+</div>
+
+<h3>
+Ta’lim huquqi
+</h3>
+
+<p>
+Talaba va o‘quvchi huquqlari.
+</p>
+
+</div>
+
+
+<div class="law">
+
+<div class="law-icon">
+💰
+</div>
+
+<h3>
+Soliq huquqi
+</h3>
+
+<p>
+Soliq masalalari.
+</p>
+
+</div>
+
+
+<div class="law">
+
+<div class="law-icon">
+🏛️
+</div>
+
+<h3>
+Ma’muriy huquq
+</h3>
+
+<p>
+Jarima va ma’muriy ishlar.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI -->
+
+<section id="ai">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+🤖 Adolat AI
+</h2>
+
+<p>
+Savolingizni yozing — AI yordam beradi
+</p>
+
+</div>
+
+
+<div class="ai-box">
+
+
+<div
+id="chat"
+class="chat">
+
+
+<div class="message bot">
+
+Assalomu alaykum! 👋
+
+Men Adolat AI huquqiy yordamchisiman.
+
+Savolingizni yozing.
+
+Masalan:
+
+"Ish beruvchi oyligimni bermasa
+nima qilishim mumkin?"
+
+</div>
+
+
+</div>
+
+
+<div class="chat-input">
+
+<input
+id="chatInput"
+placeholder="Huquqiy savolingiz..."
+onkeydown="
+if(event.key==='Enter')
+sendMessage()
+">
+
+<button
+class="btn"
+onclick="sendMessage()">
+
+Yuborish
+
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- APPLICATION -->
+
+<section id="application">
+
+<div class="container">
+
+<div class="title">
+
+<h2>
+📝 Ariza yaratish
+</h2>
+
+<p>
+Oddiy ma’lumotlarni kiriting
+</p>
+
+</div>
+
+
+<div class="generator">
+
+
+<div class="group">
+
+<label>
+Ariza turi
+</label>
+
+<select id="appType">
+
+<option>
+Mehnat masalasi
+</option>
+
+<option>
+Iste’molchi shikoyati
+</option>
+
+<option>
+Davlat organiga murojaat
+</option>
+
+<option>
+Uy-joy masalasi
+</option>
+
+<option>
+Boshqa
+</option>
+
+</select>
+
+</div>
+
+
+<div class="group">
+
+<label>
+F.I.Sh.
+</label>
+
+<input
+id="fullName"
+placeholder="Ism Familiya">
+
+</div>
+
+
+<div class="group">
+
+<label>
+Kimga?
+</label>
+
+<input
+id="toWhom"
+placeholder="Tashkilot nomi">
+
+</div>
+
+
+<div class="group">
+
+<label>
+Muammo
+</label>
+
+<textarea
+id="problem"
+placeholder="Vaziyatni batafsil yozing">
+</textarea>
+
+</div>
+
+
+<div class="group">
+
+<label>
+Talabingiz
+</label>
+
+<textarea
+id="request"
+placeholder="Nimani talab qilasiz?">
+</textarea>
+
+</div>
+
+
+<button
+class="btn"
+onclick="generateApplication()">
+
+📄 Ariza yaratish
+
+</button>
+
+
+<div
+id="result"
+class="result">
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<h2>
+⚖️ ADOLAT 2.0
+</h2>
+
+<p>
+Huquqingizni biling — o‘zingizni himoya qiling.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   CONFIG
+========================= */
+
+/*
+  Productionda bu URL'ni
+  Render/Railway backend URL'iga
+  almashtiring.
+*/
+
+const API_URL =
+  "http://localhost:3000";
+
+
+/* =========================
+   CHAT HISTORY
+========================= */
+
+let chatHistory = [];
+
+
+/* =========================
+   SCROLL
+========================= */
+
+function scrollToAI(){
+
+  document
+    .getElementById("ai")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   HERO QUESTION
+========================= */
+
+function askFromHero(){
+
+  const input =
+    document.getElementById("heroInput");
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    alert("Savolingizni yozing.");
+
+    return;
+
+  }
+
+  input.value="";
+
+  scrollToAI();
+
+  document
+    .getElementById("chatInput")
+    .value=text;
+
+  sendMessage();
+
+}
+
+
+/* =========================
+   SEND MESSAGE
+========================= */
+
+async function sendMessage(){
+
+  const input =
+    document.getElementById("chatInput");
+
+  const text =
+    input.value.trim();
+
+  if(!text) return;
+
+
+  addMessage(
+    "user",
+    text
+  );
+
+
+  input.value="";
+
+  const loading =
+    addMessage(
+      "bot",
+      "⏳ Javob tayyorlanmoqda...",
+      true
+    );
+
+
+  try{
+
+    const response =
+      await fetch(
+        `${API_URL}/api/chat`,
+        {
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+
+          body:JSON.stringify({
+
+            message:text,
+
+            history:chatHistory
+
+          })
+
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if(!response.ok){
+
+      throw new Error(
+        data.error ||
+        "Server xatosi"
+      );
+
+    }
+
+
+    loading.remove();
+
+
+    addMessage(
+      "bot",
+      data.answer
+    );
+
+
+    chatHistory.push({
+
+      role:"user",
+
+      content:text
+
+    });
+
+
+    chatHistory.push({
+
+      role:"assistant",
+
+      content:data.answer
+
+    });
+
+
+    chatHistory =
+      chatHistory.slice(-10);
+
+
+  }catch(error){
+
+    loading.remove();
+
+    addMessage(
+      "bot",
+      "❌ Xatolik: " +
+      error.message
+    );
+
+  }
+
+}
+
+
+/* =========================
+   ADD MESSAGE
+========================= */
+
+function addMessage(
+  type,
+  text,
+  temporary=false
+){
+
+  const chat =
+    document.getElementById("chat");
+
+
+  const div =
+    document.createElement("div");
+
+
+  div.className =
+    `message ${type}`;
+
+
+  div.textContent=text;
+
+
+  if(temporary){
+
+    div.classList.add("loading");
+
+  }
+
+
+  chat.appendChild(div);
+
+
+  chat.scrollTop =
+    chat.scrollHeight;
+
+
+  return div;
+
+}
+
+
+/* =========================
+   APPLICATION
+========================= */
+
+async function generateApplication(){
+
+  const type =
+    document.getElementById(
+      "appType"
+    ).value;
+
+  const name =
+    document.getElementById(
+      "fullName"
+    ).value.trim();
+
+  const to =
+    document.getElementById(
+      "toWhom"
+    ).value.trim();
+
+  const problem =
+    document.getElementById(
+      "problem"
+    ).value.trim();
+
+  const request =
+    document.getElementById(
+      "request"
+    ).value.trim();
+
+
+  if(
+    !name ||
+    !to ||
+    !problem ||
+    !request
+  ){
+
+    alert(
+      "Barcha maydonlarni to‘ldiring."
+    );
+
+    return;
+
+  }
+
+
+  const result =
+    document.getElementById(
+      "result"
+    );
+
+
+  result.style.display="block";
+
+  result.textContent=
+    "⏳ AI ariza tayyorlamoqda...";
+
+
+  try{
+
+    const response =
+      await fetch(
+        `${API_URL}/api/chat`,
+        {
+
+          method:"POST",
+
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+
+          body:JSON.stringify({
+
+            message:`
+
+Quyidagi ma'lumotlar asosida
+rasmiy huquqiy ariza loyihasini tuzing.
+
+Ariza turi:
+${type}
+
+F.I.Sh.:
+${name}
+
+Kimga:
+${to}
+
+Muammo:
+${problem}
+
+Talab:
+${request}
+
+Arizani o‘zbek tilida,
+rasmiy va tushunarli shaklda yozing.
+Keraksiz qonun moddalarini o‘ylab topmang.
+
+`
+
+          })
+
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if(!response.ok){
+
+      throw new Error(
+        data.error ||
+        "Server xatosi"
+      );
+
+    }
+
+
+    result.textContent =
+      data.answer;
+
+
+  }catch(error){
+
+    result.textContent =
+      "❌ " +
+      error.message;
+
+  }
+
+}
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if(
+  "serviceWorker" in navigator
+){
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      navigator.serviceWorker
+        .register("./sw.js")
+        .catch(console.error);
+
+    }
+  );
+
+}
+
+</script>
+
+</body>
+
+</html>
+```

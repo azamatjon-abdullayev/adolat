@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ADOLAT 2.0</title>
+
+<meta name="description"
+content="Adolat — huquqingizni biling, o‘zingizni himoya qiling.">
+
+<meta name="theme-color" content="#0b1f3a">
+
+<link rel="manifest" href="./manifest.json">
+
+<link rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./icons/icon-192.png">
+
+<link rel="apple-touch-icon"
+      href="./icons/icon-192.png">
+
+<style>
+
+:root{
+  --primary:#0b1f3a;
+  --primary2:#123968;
+  --gold:#d9a441;
+  --bg:#f5f7fb;
+  --card:#fff;
+  --text:#182230;
+  --muted:#687386;
+  --border:#e4e8ef;
+  --shadow:0 10px 30px rgba(11,31,58,.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+button,input,textarea,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:22px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+.logo-icon{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:var(--primary);
+  color:var(--gold);
+  font-size:23px;
+}
+
+nav{
+  display:flex;
+  gap:20px;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:var(--gold);
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:1px solid var(--border);
+  background:white;
+  border-radius:11px;
+}
+
+/* INSTALL */
+
+.install-btn{
+  display:none;
+  border:0;
+  padding:10px 15px;
+  border-radius:10px;
+  background:var(--gold);
+  font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+  padding:90px 0 70px;
+  background:
+  radial-gradient(circle at 85% 20%,rgba(217,164,65,.18),transparent 30%),
+  linear-gradient(135deg,#081a32,#123968);
+  color:white;
+}
+
+.hero-content{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 14px;
+  border-radius:30px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);
+  font-size:13px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(40px,7vw,65px);
+  line-height:1.1;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero p{
+  color:#d8e0ec;
+  font-size:18px;
+  margin:20px 0 30px;
+}
+
+.search{
+  display:flex;
+  max-width:720px;
+  margin:auto;
+  padding:7px;
+  background:white;
+  border-radius:16px;
+}
+
+.search input{
+  flex:1;
+  border:0;
+  outline:0;
+  padding:14px;
+}
+
+.btn{
+  border:0;
+  padding:13px 20px;
+  border-radius:11px;
+  background:var(--gold);
+  font-weight:bold;
+}
+
+.ai-button{
+  margin-top:15px;
+  padding:12px 20px;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:12px;
+  background:rgba(255,255,255,.08);
+  color:white;
+}
+
+/* SECTIONS */
+
+section{
+  padding:70px 0;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.title h2{
+  font-size:32px;
+  color:var(--primary);
+}
+
+.title p{
+  color:var(--muted);
+}
+
+/* CARDS */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:var(--shadow);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card-icon{
+  font-size:35px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* LAWS */
+
+.laws{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.law{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:20px;
+  cursor:pointer;
+}
+
+.law:hover{
+  border-color:var(--gold);
+}
+
+.law-icon{
+  font-size:30px;
+}
+
+/* AI */
+
+.ai-box{
+  max-width:850px;
+  margin:auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.chat{
+  height:350px;
+  padding:20px;
+  overflow:auto;
+}
+
+.message{
+  max-width:80%;
+  padding:12px 15px;
+  margin-bottom:12px;
+  border-radius:14px;
+}
+
+.bot{
+  background:#edf2f8;
+}
+
+.user{
+  margin-left:auto;
+  background:var(--primary);
+  color:white;
+}
+
+.chat-input{
+  display:flex;
+  gap:8px;
+  padding:12px;
+  border-top:1px solid var(--border);
+}
+
+.chat-input input{
+  flex:1;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+/* FORM */
+
+.generator{
+  max-width:850px;
+  margin:auto;
+  padding:30px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+}
+
+.form-group{
+  margin-bottom:17px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+  width:100%;
+  padding:13px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--bg);
+}
+
+.form-group textarea{
+  min-height:120px;
+}
+
+.result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  border-radius:12px;
+  background:var(--bg);
+  white-space:pre-line;
+}
+
+/* QUIZ */
+
+.quiz{
+  max-width:750px;
+  margin:auto;
+  padding:30px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+}
+
+.question{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.answers{
+  display:grid;
+  gap:10px;
+}
+
+.answer{
+  padding:13px;
+  text-align:left;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--bg);
+}
+
+/* NEWS */
+
+.news{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.news-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+.news-top{
+  height:130px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#0b1f3a,#123968);
+  color:white;
+  font-size:45px;
+}
+
+.news-body{
+  padding:20px;
+}
+
+.news-body small{
+  color:var(--gold);
+}
+
+.news-body p{
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+  background:var(--primary);
+  color:white;
+  padding:45px 0 90px;
+}
+
+.footer{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.footer p{
+  color:#bac6d6;
+}
+
+/* BOTTOM NAV */
+
+.bottom{
+  display:none;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(0,0,0,.65);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.active{
+  display:flex;
+}
+
+.modal-content{
+  position:relative;
+  width:min(600px,100%);
+  max-height:90vh;
+  overflow:auto;
+  padding:30px;
+  border-radius:20px;
+  background:var(--card);
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:10px;
+  border:0;
+  background:none;
+  font-size:28px;
+}
+
+/* DARK */
+
+body.dark{
+  --bg:#09111d;
+  --card:#101b2a;
+  --text:#e9eef6;
+  --muted:#9ba8ba;
+  --border:#203044;
+}
+
+body.dark header{
+  background:rgba(9,17,29,.94);
+}
+
+body.dark nav a{
+  color:white;
+}
+
+body.dark .bot{
+  background:#1b2a3c;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  nav{
+    display:none;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .laws{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .news{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hero{
+    padding:65px 0;
+  }
+
+  section{
+    padding:50px 0;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .search{
+    flex-direction:column;
+  }
+
+  .laws{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer{
+    flex-direction:column;
+  }
+
+  .bottom{
+    position:fixed;
+    display:flex;
+    bottom:0;
+    left:0;
+    right:0;
+    height:65px;
+    background:var(--card);
+    border-top:1px solid var(--border);
+    z-index:1500;
+    justify-content:space-around;
+    align-items:center;
+  }
+
+  .bottom a{
+    text-decoration:none;
+    color:var(--muted);
+    text-align:center;
+    font-size:11px;
+  }
+
+  .bottom span{
+    display:block;
+    font-size:20px;
+  }
+
+  .install-btn{
+    display:block;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+  <div class="logo">
+    <div class="logo-icon">⚖️</div>
+    ADOLAT
+  </div>
+
+  <nav>
+    <a href="#home">Bosh sahifa</a>
+    <a href="#laws">Qonunlar</a>
+    <a href="#ai">AI</a>
+    <a href="#application">Ariza</a>
+    <a href="#quiz">Test</a>
+  </nav>
+
+  <div style="display:flex;gap:7px">
+
+    <button
+      id="installBtn"
+      class="install-btn">
+      📲 O‘rnatish
+    </button>
+
+    <button
+      class="icon-btn"
+      onclick="toggleDark()">
+      🌙
+    </button>
+
+  </div>
+
+</div>
+
+</header>
+
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+  <div class="badge">
+    🇺🇿 O‘zbekiston uchun huquqiy platforma
+  </div>
+
+  <h1>
+    Huquqingizni biling.<br>
+    <span>Adolatni tanlang.</span>
+  </h1>
+
+  <p>
+    Qonunlarni o‘rganing, savollaringizga javob toping
+    va huquqiy arizalarni oson yarating.
+  </p>
+
+  <div class="search">
+
+    <input
+      id="searchInput"
+      placeholder="Huquqiy savolingizni yozing..."
+      onkeydown="if(event.key==='Enter') search()">
+
+    <button
+      class="btn"
+      onclick="search()">
+      🔎 Qidirish
+    </button>
+
+  </div>
+
+  <button
+    class="ai-button"
+    onclick="go('ai')">
+    🤖 AI Huquqshunos
+  </button>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="title">
+
+<h2>Sizga qanday yordam beramiz?</h2>
+
+<p>Kerakli xizmatni tanlang</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card" onclick="go('ai')">
+<div class="card-icon">🤖</div>
+<h3>AI Huquqshunos</h3>
+<p>Huquqiy savolingizni yozing.</p>
+</div>
+
+<div class="card" onclick="go('laws')">
+<div class="card-icon">📚</div>
+<h3>Qonunlar</h3>
+<p>Huquqiy ma’lumotlarni qidiring.</p>
+</div>
+
+<div class="card" onclick="go('application')">
+<div class="card-icon">📝</div>
+<h3>Ariza yaratish</h3>
+<p>Tayyor ariza hosil qiling.</p>
+</div>
+
+<div class="card" onclick="go('quiz')">
+<div class="card-icon">🧠</div>
+<h3>Huquqiy test</h3>
+<p>Bilimingizni sinab ko‘ring.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="laws">
+
+<div class="container">
+
+<div class="title">
+
+<h2>📚 Huquqiy yo‘nalishlar</h2>
+
+<p>Kerakli bo‘limni tanlang</p>
+
+</div>
+
+<div class="laws">
+
+<div class="law" onclick="law('Mehnat huquqi')">
+<div class="law-icon">👷</div>
+<h3>Mehnat</h3>
+<p>Ishchi huquqlari</p>
+</div>
+
+<div class="law" onclick="law('Iste’molchi huquqi')">
+<div class="law-icon">🛒</div>
+<h3>Iste’molchi</h3>
+<p>Tovar va xizmatlar</p>
+</div>
+
+<div class="law" onclick="law('Oila huquqi')">
+<div class="law-icon">👨‍👩‍👧</div>
+<h3>Oila</h3>
+<p>Nikoh va aliment</p>
+</div>
+
+<div class="law" onclick="law('Ta’lim huquqi')">
+<div class="law-icon">🎓</div>
+<h3>Ta’lim</h3>
+<p>Talaba huquqlari</p>
+</div>
+
+<div class="law" onclick="law('Yo‘l harakati')">
+<div class="law-icon">🚗</div>
+<h3>Yo‘l harakati</h3>
+<p>Haydovchi huquqlari</p>
+</div>
+
+<div class="law" onclick="law('Uy-joy huquqi')">
+<div class="law-icon">🏠</div>
+<h3>Uy-joy</h3>
+<p>Uy-joy masalalari</p>
+</div>
+
+<div class="law" onclick="law('Soliq huquqi')">
+<div class="law-icon">💰</div>
+<h3>Soliq</h3>
+<p>Soliq masalalari</p>
+</div>
+
+<div class="law" onclick="law('Ma’muriy huquq')">
+<div class="law-icon">🏛️</div>
+<h3>Ma’muriy</h3>
+<p>Jarima va ishlar</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="ai">
+
+<div class="container">
+
+<div class="title">
+
+<h2>🤖 AI Huquqshunos</h2>
+
+<p>Savolingizni yozing</p>
+
+</div>
+
+<div class="ai-box">
+
+<div class="chat" id="chat">
+
+<div class="message bot">
+👋 Salom! Men Adolat AI yordamchisiman.
+Huquqiy savolingizni yozing.
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input
+id="chatInput"
+placeholder="Masalan: Oyligim berilmasa nima qilishim kerak?"
+onkeydown="if(event.key==='Enter') send()">
+
+<button
+class="btn"
+onclick="send()">
+Yuborish
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="application">
+
+<div class="container">
+
+<div class="title">
+
+<h2>📝 Ariza yaratish</h2>
+
+<p>Ma’lumotlarni kiriting</p>
+
+</div>
+
+<div class="generator">
+
+<div class="form-group">
+
+<label>Ariza turi</label>
+
+<select id="appType">
+
+<option>Mehnat bo‘yicha murojaat</option>
+<option>Iste’molchi shikoyati</option>
+<option>Davlat organiga murojaat</option>
+<option>Uy-joy bo‘yicha murojaat</option>
+<option>Boshqa</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>F.I.Sh.</label>
+
+<input
+id="fullName"
+placeholder="Ism va familiya">
+
+</div>
+
+<div class="form-group">
+
+<label>Kimga?</label>
+
+<input
+id="toWhom"
+placeholder="Tashkilot yoki mansabdor shaxs">
+
+</div>
+
+<div class="form-group">
+
+<label>Muammo</label>
+
+<textarea
+id="problem"
+placeholder="Nima bo‘ldi?"></textarea>
+
+</div>
+
+<div class="form-group">
+
+<label>Talabingiz</label>
+
+<textarea
+id="request"
+placeholder="Nimani talab qilasiz?"></textarea>
+
+</div>
+
+<button
+class="btn"
+onclick="generateApplication()">
+
+📄 Ariza yaratish
+
+</button>
+
+<div
+class="result"
+id="result">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="quiz">
+
+<div class="container">
+
+<div class="title">
+
+<h2>🧠 Huquqiy test</h2>
+
+<p>Bilimingizni sinab ko‘ring</p>
+
+</div>
+
+<div class="quiz">
+
+<div
+id="question"
+class="question">
+</div>
+
+<div
+id="answers"
+class="answers">
+</div>
+
+<div
+id="quizResult">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="title">
+
+<h2>📰 Huquqiy yangiliklar</h2>
+
+<p>Foydali ma’lumotlar</p>
+
+</div>
+
+<div class="news">
+
+<div class="news-card">
+
+<div class="news-top">⚖️</div>
+
+<div class="news-body">
+
+<small>HUQUQ</small>
+
+<h3>Huquqingizni biling</h3>
+
+<p>
+O‘z huquqlarini bilish har bir fuqaro uchun muhim.
+</p>
+
+</div>
+
+</div>
+
+<div class="news-card">
+
+<div class="news-top">📚</div>
+
+<div class="news-body">
+
+<small>QONUN</small>
+
+<h3>Qonunchilik</h3>
+
+<p>
+Huquqiy yangiliklarni kuzatib boring.
+</p>
+
+</div>
+
+</div>
+
+<div class="news-card">
+
+<div class="news-top">🛡️</div>
+
+<div class="news-body">
+
+<small>MASLAHAT</small>
+
+<h3>Huquqingiz buzilganda</h3>
+
+<p>
+Tegishli tashkilotga murojaat qilishni o‘rganing.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container footer">
+
+<div>
+
+<div
+class="logo"
+style="color:white">
+
+<div class="logo-icon">⚖️</div>
+
+ADOLAT
+
+</div>
+
+<p>
+Huquqingizni biling — o‘zingizni himoya qiling.
+</p>
+
+</div>
+
+<div>
+
+<h3>Adolat 2.0</h3>
+
+<p>Qonunlar</p>
+<p>AI yordamchi</p>
+<p>Ariza generatori</p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<div class="bottom">
+
+<a href="#home">
+<span>🏠</span>
+Bosh sahifa
+</a>
+
+<a href="#laws">
+<span>📚</span>
+Qonunlar
+</a>
+
+<a href="#ai">
+<span>🤖</span>
+AI
+</a>
+
+<a href="#application">
+<span>📝</span>
+Ariza
+</a>
+
+<a href="#quiz">
+<span>🧠</span>
+Test
+</a>
+
+</div>
+
+
+<div
+class="modal"
+id="modal">
+
+<div class="modal-content">
+
+<button
+class="close"
+onclick="closeModal()">
+×
+</button>
+
+<h2 id="modalTitle"></h2>
+
+<br>
+
+<p id="modalText"></p>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* NAVIGATION */
+
+function go(id){
+
+document
+.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* DARK MODE */
+
+function toggleDark(){
+
+document.body.classList.toggle("dark");
+
+localStorage.setItem(
+"adolatDark",
+document.body.classList.contains("dark")
+);
+
+}
+
+if(
+localStorage.getItem("adolatDark")==="true"
+){
+document.body.classList.add("dark");
+}
+
+
+/* SEARCH */
+
+function search(){
+
+const input=
+document.getElementById("searchInput");
+
+const value=
+input.value.trim();
+
+if(!value){
+
+alert("Savolingizni yozing.");
+
+return;
+
+}
+
+go("ai");
+
+document.getElementById("chatInput")
+.value=value;
+
+send();
+
+}
+
+
+/* =========================
+   ADOLAT AI - REAL BACKEND
+========================= */
+
+// Local development backend.
+// When you deploy the backend, change this URL to your public API URL.
+const API_BASE_URL =
+  window.ADOLAT_API_URL || "http://localhost:3000";
+
+let chatHistory = [];
+let aiBusy = false;
+
+function addChatMessage(role, text) {
+
+  const chat = document.getElementById("chat");
+
+  const message = document.createElement("div");
+  message.className = `message ${role}`;
+  message.textContent = text;
+
+  chat.appendChild(message);
+  chat.scrollTop = chat.scrollHeight;
+
+  return message;
+}
+
+function addLoadingMessage() {
+
+  const chat = document.getElementById("chat");
+
+  const message = document.createElement("div");
+  message.className = "message bot";
+  message.id = "ai-loading";
+  message.textContent = "🤖 Adolat AI o‘ylamoqda...";
+
+  chat.appendChild(message);
+  chat.scrollTop = chat.scrollHeight;
+
+  return message;
+}
+
+async function send() {
+
+  if (aiBusy) return;
+
+  const input = document.getElementById("chatInput");
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  aiBusy = true;
+
+  addChatMessage("user", text);
+  input.value = "";
+  input.disabled = true;
+
+  const sendButton =
+    document.querySelector(".chat-input .btn");
+
+  if (sendButton) {
+    sendButton.disabled = true;
+    sendButton.textContent = "Yuborilmoqda...";
+  }
+
+  const loading = addLoadingMessage();
+
+  try {
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/chat`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: text,
+          history: chatHistory.slice(-10)
+        })
+      }
+    );
+
+    let data = {};
+
+    try {
+      data = await response.json();
+    } catch (_) {
+      data = {};
+    }
+
+    if (!response.ok || !data.success) {
+      throw new Error(
+        data.error ||
+        `Server xatosi (${response.status})`
+      );
+    }
+
+    loading.remove();
+
+    const answer =
+      data.answer ||
+      "Kechirasiz, javob olishda muammo yuz berdi.";
+
+    addChatMessage("bot", answer);
+
+    chatHistory.push({
+      role: "user",
+      content: text
+    });
+
+    chatHistory.push({
+      role: "assistant",
+      content: answer
+    });
+
+    chatHistory = chatHistory.slice(-10);
+
+  } catch (error) {
+
+    console.error("Adolat AI ERROR:", error);
+
+    if (loading) loading.remove();
+
+    addChatMessage(
+      "bot",
+      "❌ AI serveriga ulanib bo‘lmadi.\n\n" +
+      "Backend ishga tushganini tekshiring:\n" +
+      "http://localhost:3000\n\n" +
+      "Agar backend ishlayotgan bo‘lsa, CORS va .env sozlamalarini tekshiring."
+    );
+
+  } finally {
+
+    aiBusy = false;
+    input.disabled = false;
+    input.focus();
+
+    if (sendButton) {
+      sendButton.disabled = false;
+      sendButton.textContent = "Yuborish";
+    }
+  }
+}
+
+// Backend holatini tekshirish.
+async function checkAIConnection() {
+
+  try {
+
+    const response = await fetch(
+      `${API_BASE_URL}/health`,
+      {
+        method: "GET"
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Backend javobi xato.");
+    }
+
+    console.log("✅ Adolat AI backend ulangan:", API_BASE_URL);
+
+  } catch (error) {
+
+    console.warn(
+      "⚠️ Adolat AI backend hozircha ulanmagan:",
+      error.message
+    );
+  }
+}
+
+checkAIConnection();
+
+
+/* LAW */
+
+function law(name){
+
+const texts={
+
+"Mehnat huquqi":
+"Ishchi va ish beruvchi o‘rtasidagi mehnat munosabatlari.",
+
+"Iste’molchi huquqi":
+"Tovar va xizmatlardan foydalanuvchilarning huquqlari.",
+
+"Oila huquqi":
+"Nikoh, oila, aliment va farzandlar bilan bog‘liq masalalar.",
+
+"Ta’lim huquqi":
+"Ta’lim oluvchilar va ta’lim tashkilotlari bilan bog‘liq huquqlar.",
+
+"Yo‘l harakati":
+"Haydovchi va yo‘l harakati ishtirokchilarining huquqlari.",
+
+"Uy-joy huquqi":
+"Uy-joydan foydalanish va uy-joy bilan bog‘liq munosabatlar.",
+
+"Soliq huquqi":
+"Soliqlar va soliq majburiyatlari bilan bog‘liq masalalar.",
+
+"Ma’muriy huquq":
+"Ma’muriy javobgarlik va davlat boshqaruvi bilan bog‘liq masalalar."
+
+};
+
+document.getElementById("modalTitle")
+.textContent=name;
+
+document.getElementById("modalText")
+.textContent=texts[name]||"Ma’lumot mavjud emas.";
+
+document.getElementById("modal")
+.classList.add("active");
+
+}
+
+function closeModal(){
+
+document.getElementById("modal")
+.classList.remove("active");
+
+}
+
+
+/* APPLICATION */
+
+function generateApplication(){
+
+const type=
+document.getElementById("appType").value;
+
+const name=
+document.getElementById("fullName").value;
+
+const to=
+document.getElementById("toWhom").value;
+
+const problem=
+document.getElementById("problem").value;
+
+const request=
+document.getElementById("request").value;
+
+if(
+!name||
+!to||
+!problem||
+!request
+){
+
+alert("Barcha maydonlarni to‘ldiring.");
+
+return;
+
+}
+
+const text=
+`ARIZA
+
+Kimga: ${to}
+
+Kimdan: ${name}
+
+Murojaat turi: ${type}
+
+Men, ${name}, quyidagi masala bo‘yicha murojaat qilmoqdaman:
+
+${problem}
+
+Shu munosabat bilan quyidagilarni so‘rayman:
+
+${request}
+
+Sana: ${
+new Date().toLocaleDateString("uz-UZ")
+}
+
+Imzo: __________________`;
+
+const result=
+document.getElementById("result");
+
+result.textContent=text;
+
+result.style.display="block";
+
+}
+
+
+/* QUIZ */
+
+const questions=[
+
+{
+q:"Konstitutsiya nima?",
+a:[
+"Davlatning asosiy qonuni",
+"Bank hujjati",
+"Oddiy shartnoma",
+"Soliq hisoboti"
+],
+correct:0
+},
+
+{
+q:"Iste’molchi kim?",
+a:[
+"Sotuvchi",
+"Tovar yoki xizmatni shaxsiy ehtiyoj uchun oluvchi shaxs",
+"Ishlab chiqaruvchi",
+"Faqat davlat tashkiloti"
+],
+correct:1
+},
+
+{
+q:"Mehnat shartnomasi nimani belgilaydi?",
+a:[
+"Mehnat munosabatlarini",
+"Bank hisobini",
+"Pasport ma’lumotini",
+"Yo‘l harakatini"
+],
+correct:0
+}
+
+];
+
+let current=0;
+let score=0;
+
+function loadQuestion(){
+
+if(current>=questions.length){
+
+document.getElementById("question")
+.textContent="🎉 Test yakunlandi!";
+
+document.getElementById("answers")
+.innerHTML="";
+
+document.getElementById("quizResult")
+.textContent=
+`Natijangiz: ${score}/${questions.length}`;
+
+return;
+
+}
+
+const item=questions[current];
+
+document.getElementById("question")
+.textContent=
+`${current+1}. ${item.q}`;
+
+const answers=
+document.getElementById("answers");
+
+answers.innerHTML="";
+
+item.a.forEach((answer,index)=>{
+
+const button=
+document.createElement("button");
+
+button.className="answer";
+
+button.textContent=answer;
+
+button.onclick=()=>{
+
+if(index===item.correct){
+score++;
+}
+
+current++;
+
+loadQuestion();
+
+};
+
+answers.appendChild(button);
+
+});
+
+}
+
+loadQuestion();
+
+
+/* PWA INSTALL */
+
+let deferredPrompt;
+
+const installBtn=
+document.getElementById("installBtn");
+
+window.addEventListener(
+"beforeinstallprompt",
+(event)=>{
+
+event.preventDefault();
+
+deferredPrompt=event;
+
+installBtn.style.display="block";
+
+}
+);
+
+installBtn.addEventListener(
+"click",
+async()=>{
+
+if(!deferredPrompt)return;
+
+deferredPrompt.prompt();
+
+const result=
+await deferredPrompt.userChoice;
+
+deferredPrompt=null;
+
+installBtn.style.display="none";
+
+}
+);
+
+window.addEventListener(
+"appinstalled",
+()=>{
+
+installBtn.style.display="none";
+
+console.log("Adolat PWA o‘rnatildi");
+
+}
+);
+
+
+/* SERVICE WORKER */
+
+if("serviceWorker" in navigator){
+
+window.addEventListener(
+"load",
+()=>{
+
+navigator.serviceWorker
+.register("./sw.js")
+.then(()=>{
+console.log("Adolat Service Worker ishga tushdi");
+})
+.catch(error=>{
+console.log("SW xatosi:",error);
+});
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

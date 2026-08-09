@@ -1,0 +1,9 @@
+{
+  "name": "Adolat 2.0",
+  "short_name": "Adolat",
+  "description": "O‘zbekiston huquqiy AI yordamchisi",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb"
+}

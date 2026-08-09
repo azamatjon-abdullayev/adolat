@@ -1,0 +1,28 @@
+
+{
+  "name": "Adolat 2.0",
+  "short_name": "Adolat",
+  "description": "O‘zbekiston uchun huquqiy AI yordamchi",
+  "lang": "uz",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0b1f3a",
+  "background_color": "#0b1f3a",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
