@@ -1,6 +1,6 @@
 async function askAI(message, history = []) {
     const response = await fetch(
-        "http://localhost:3000/",
+        "http://localhost:3000",
         {
             method: "POST",
             headers: {
